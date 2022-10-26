@@ -8,21 +8,19 @@
                 <form action="<?php echo base_url('Barang/filter_barang/') ?>" method="POST">
                     <div class="input-group input-group-sm">
                         <select name="grup" class="form-control">
+														<?php if($grup != NULL) { ?>
                             <?php foreach($grup as $g) { ?>
                             <option value="<?php echo $g->grup; ?>"><?php echo $g->grup; ?></option>
-                            <?php } ?>
+                            <?php } } else { ?>
+															<option>Data Belum Ada</option>
+															<?php } ?>
                         </select>
                         <span class="input-group-btn">
                         <button type="submit" name="filter" class="btn btn-info btn-flat">Go!</button>
                         </span>
                     </div>
-                </form> <br>
+                </form>
                 </div><!-- /.box-header -->
-                <div class="box-body">
-        				<a href="#"><button class="btn btn-success" type="button" data-target="#ModalAdd" data-toggle="modal"><i class="fa fa-plus"></i> Tambah</button></a>
-                <a href="#"><button class="btn btn-info" type="button" data-target="#Modalcsv" data-toggle="modal"><i class="fa fa-file"></i> Import CSV</button></a>
-                <!-- <a href="<?php // echo base_url("Barang/delt/") ?>" class="btn btn-danger"><i class="fa fa-trash-o"></i> Hapus Data</a> -->
-                  <br></br>
 				  <table id="data" class="table table-bordered table-striped table-scalable">
                     <thead>
                         <tr>

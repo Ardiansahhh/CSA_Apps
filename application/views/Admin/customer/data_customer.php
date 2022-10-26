@@ -39,7 +39,7 @@
                             <th>Nama Toko</th>
                             <th>Alamat</th>
                             <th>Wilayah</th>
-                            <th>Setting Disc</th>
+                            <th>Geotag</th>
                             <th>Edit</th>
                         </tr>
                     </thead>
@@ -52,14 +52,8 @@
                            <td><?php echo $dc->nama_toko; ?></td>
                            <td><?php echo $dc->alamat; ?></td>
                            <td><?php echo $dc->nama_wilayah; ?></td>
-                           <td><?php echo $dc->setting_disc; ?></td>
-                           <td><?php include('modal_edit.php'); ?>
-                            <?php if($dc->setting_disc == 'No') { ?>
-                             <a href="<?php echo base_url('Main/settingDisc/'.$dc->kode_toko); ?>" class="btn btn-info btn-xs"><i class="fa fa-money"></i> Setting Disc</a>
-                           <?php } else { ?>
-                            <a href="<?php echo base_url('Main/noDisc/'.$dc->kode_toko); ?>" class="btn btn-danger btn-xs"><i class="fa fa-money"></i> No Disc</a>
-                          <?php } ?>
-                           </td>
+                           <td><?php echo $dc->geotag; ?></td>
+                           <td><?php include('modal_edit.php'); ?></td>
                         </tr>
                   <?php $no++; ?>
                   <?php } ?>

@@ -21,7 +21,7 @@
 						<input name="kode_toko" type="text" value="<?php echo $dc->kode_toko; ?>" class="form-control" required readonly/>
 				</div>
 			</div>
-            <div class="form-group">
+      <div class="form-group">
 				<label>Nama Toko</label>
 				<div class="input-group">
 					<div class="input-group-addon">
@@ -36,7 +36,7 @@
 					<div class="input-group-addon">
 						<i class="fa fa-id-card"></i>
 					</div>
-                    <input name="alamat" type="text" value="<?php echo $dc->alamat; ?>" class="form-control" required/>
+          <input name="alamat" type="text" value="<?php echo $dc->alamat; ?>" class="form-control" required/>
 				</div>
 			</div>
             <div class="form-group">
@@ -46,6 +46,27 @@
                     <option <?php if($dc->ruang_lingkup == $l->kode_ruang) { echo 'selected'; ?> value="<?php echo $l->kode_ruang; ?>"><?php echo $l->nama_wilayah; ?></option>
                     <?php } else { ?>
                     <option value="<?php echo $l->kode_ruang; ?>"><?php echo $l->nama_wilayah; ?></option>
+                    <?php } } ?>
+                </select>
+            </div>
+						<div class="form-group">
+							<label>Geotag</label>
+							<div class="input-group">
+								<div class="input-group-addon">
+									<i class="fa fa-id-card"></i>
+								</div>
+									<input name="geotag" type="text" value="<?php echo $dc->geotag; ?>" class="form-control"/>
+							</div>
+						</div>
+            <div class="form-group">
+                <label>
+                  kabupaten
+                </label>
+                <select name="id_kab" class="form-control">
+                    <?php foreach($data_kab as $dk) { ?>
+                    <option <?php if($dc->id_kab == $dk->id_kab) { echo 'selected'; ?> value="<?php echo $dk->id_kab; ?>"><?php echo $dk->nama; ?></option>
+                    <?php } else { ?>
+                    <option value="<?php echo $dk->id_kab; ?>"><?php echo $dk->nama; ?></option>
                     <?php } } ?>
                 </select>
             </div>

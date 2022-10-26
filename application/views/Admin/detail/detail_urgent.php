@@ -4,7 +4,7 @@
             <div class="col-xs-12">
               <div class="box">
                 <div class="box-header">
-                <?php if($this->session->flashdata('flash')) { echo $this->session->flashdata('flash'); } ?>
+               
                
                 </div><!-- /.box-header -->
                 <div class="box-body">

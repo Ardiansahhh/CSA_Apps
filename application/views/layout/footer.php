@@ -1,9 +1,9 @@
 <!-- /.content-wrapper -->
-  <footer class="main-footer">
+  <!-- <footer class="main-footer">
     <div class="pull-right hidden-xs">
     </div>
     <strong>Terima Kasih Atas Kunjungan Anda</strong>
-  </footer>
+  </footer> -->
   <!-- Copyright &copy; <?php // echo date('Y') ?> PT.Catur Sentosa Anugerah -->
 
   <!-- Control Sidebar -->
@@ -203,6 +203,7 @@
 <!-- ./wrapper -->
 
 <!-- jQuery 3 -->
+
 <script src="<?php echo base_url(); ?>assets/bower_components/jquery/dist/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="<?php echo base_url(); ?>assets/bower_components/jquery-ui/jquery-ui.min.js"></script>

@@ -22,7 +22,7 @@ class Filter extends CI_Controller {
         $pjg  = strlen($kode);
         if($pjg == 1) {
             $record = '00000'.$kode;
-            $query = $this->db->query("SELECT * FROM tb_filter_data WHERE kode_toko LIKE '%record%'")->row();
+            $query = $this->db->query("SELECT * FROM tb_filter_data WHERE kode_toko LIKE '%$record%'")->row();
             if($query != NULL) {
                 $this->session->set_flashdata('flash', '<div class="alert alert-danger text-center" role="alert">Data Telah Disimpan, tanyakan kepada Order Entry, apakah orderan dirilis 2 kali</div>');
                 $data = array('data_cust' => $query,
@@ -97,7 +97,7 @@ class Filter extends CI_Controller {
                     redirect(base_url('filter'), 'refresh');
                 } 
             }
-        }elseif($pjg == 4) {
+        } elseif($pjg == 4) {
             $record = '00'.$kode;
             $query = $this->db->query("SELECT * FROM tb_filter_data WHERE kode_toko LIKE '%$record%'")->row();
             if($query != NULL) {

@@ -39,7 +39,11 @@ class Barang extends CI_Controller {
                                       'nama_barang'   => $column[1],
                                       'harga'         => $column[4],
                                       'grup'          => $column[2],
-                                      'isi'           => $column[3]);
+                                      'isi'           => $column[3],
+									  'panjang'       => $column[5],
+									  'lebar'         => $column[6],
+									  'tinggi'        => $column[7],
+									  'kubikasi'      => $column[8]);
                         $this->all->in($data, 'barang');
                     }
                 } 
@@ -75,6 +79,28 @@ class Barang extends CI_Controller {
                     redirect(base_url('Barang'), 'refresh');
                 }
             }
+        }
+
+        public function tambah_barang() {
+              $kode  = strtoupper($this->input->post('kode_barang', true));
+              $nama  = strtoupper($this->input->post('nama_barang', true));
+              $harga = $this->input->post('harga', true);
+              $grup  = $this->input->post('grup', true);
+              $isi   = $this->input->post('isi', true);
+              $query = $this->db->query("SELECT * FROM barang WHERE kode_barang = '$kode'")->row();
+              if($query) {
+                $this->session->set_flashdata('flash', '<div class="alert alert-warning text-center" role="alert">Kode Barang '.$kode.' Sudah Digunakan</div>');
+                    redirect(base_url('Barang'), 'refresh');
+              } else {
+                $data = array('kode_barang'   => $kode,
+                              'nama_barang'   => $nama,
+                              'harga'         => $harga,
+                              'grup'          => $grup,
+                              'isi'           => $isi);
+                        $this->all->in($data, 'barang');
+                        $this->session->set_flashdata('flash', '<div class="alert alert-success text-center" role="alert">Item Barang '.$nama.' Berhasil Disimpan</div>');
+                    redirect(base_url('Barang'), 'refresh');
+              }
         }
 
 }
