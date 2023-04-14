@@ -506,7 +506,11 @@ class Group extends CI_Controller
 
 	public function detailOrder($nopol)
 	{
-		$data = $this->db->query("SELECT * FROM detail_order_area WHERE no_polisi = '$nopol'")->result();
+		$data = $this->db->query("SELECT A.no_urut, A.no_polisi, A.kode_barang, A.qty, A.kubikasi, A.harga, B.nama_barang, B.isi, B.grup FROM detail_order_area AS A
+		                          LEFT JOIN barang AS B ON
+								  A.kode_barang = B.kode_barang 
+								  WHERE A.no_polisi = '$nopol'
+								  ORDER BY B.grup, B.nama_barang")->result();
 		$kubikasi = $this->db->query("SELECT SUM(kubikasi) AS kubikasi FROM detail_order_area WHERE no_polisi = '$nopol'")->row();
 		if ($data != NULL) {
 			$data = array(

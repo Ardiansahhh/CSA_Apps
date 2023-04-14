@@ -27,7 +27,7 @@
         							<?php $no = 1; ?>
         							<?php foreach ($data as $d) { ?>
         								<?php
-										$sales = $this->db->query("SELECT * FROM undelivery WHERE no_sales_order = '$d->no_sales_order'")->row();
+										$sales = $this->db->query("SELECT * FROM undelivery WHERE no_sales_order LIKE '%$d->no_sales_order%' LIMIT 1")->row();
 										$data = $this->db->query("SELECT * FROM detail_item_undelivery WHERE no_sales_order = '$d->no_sales_order'")->result();
 										$detail = count($data);
 										$detail = count($data);

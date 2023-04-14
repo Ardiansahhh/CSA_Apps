@@ -33,6 +33,7 @@ class UnDelivery extends CI_Controller
 				$file = fopen($fileName, "r");
 				while (($column = fgetcsv($file, 10000, ";")) !== false) {
 					//selama proses import, input semuanya  terlebih dahulu ke tabel detail item undelivery.
+					// $qty_order         = (int)$column[6] + (int)$column[7];
 					$qty_order         = (int)$column[6] + (int)$column[7];
 					$length_string = strlen($column[2]);
 					if ($length_string == 1) {
@@ -57,7 +58,7 @@ class UnDelivery extends CI_Controller
 							'nama_barang' => $column[5],
 							'ruang_lingkup' => $toko->ruang_lingkup,
 							'kuantiti' => $qty_order,
-							'harga' => $column[8]
+							'harga' => $column[8],
 						);
 						$this->all->in($detail_item, 'detail_item_undelivery');
 						if ($checkbarang == NULL) {
@@ -96,7 +97,7 @@ class UnDelivery extends CI_Controller
 							'nama_barang' => $column[5],
 							'ruang_lingkup' => $toko->ruang_lingkup,
 							'kuantiti' => $qty_order,
-							'harga' => $column[8]
+							'harga' => $column[8],
 						);
 						$this->all->in($detail_item, 'detail_item_undelivery');
 						if ($checkbarang == NULL) {
@@ -135,7 +136,7 @@ class UnDelivery extends CI_Controller
 							'nama_barang' => $column[5],
 							'ruang_lingkup' => $toko->ruang_lingkup,
 							'kuantiti' => $qty_order,
-							'harga' => $column[8]
+							'harga' => $column[8],
 						);
 						$this->all->in($detail_item, 'detail_item_undelivery');
 						if ($checkbarang == NULL) {
@@ -174,7 +175,7 @@ class UnDelivery extends CI_Controller
 							'nama_barang' => $column[5],
 							'ruang_lingkup' => $toko->ruang_lingkup,
 							'kuantiti' => $qty_order,
-							'harga' => $column[8]
+							'harga' => $column[8],
 						);
 						$this->all->in($detail_item, 'detail_item_undelivery');
 						if ($checkbarang == NULL) {
@@ -252,7 +253,7 @@ class UnDelivery extends CI_Controller
 							'nama_barang' => $column[5],
 							'ruang_lingkup' => $toko->ruang_lingkup,
 							'kuantiti' => $qty_order,
-							'harga' => $column[8]
+							'harga' => $column[8],
 						);
 						$this->all->in($detail_item, 'detail_item_undelivery');
 						if ($checkbarang == NULL) {

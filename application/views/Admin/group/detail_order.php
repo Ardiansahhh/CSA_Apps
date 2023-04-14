@@ -12,6 +12,7 @@
         						<thead>
         							<tr>
         								<th>No</th>
+        								<th>Brand</th>
         								<th>Kode Barang</th>
         								<th>Nama Barang</th>
         								<th>Karton</th>
@@ -22,14 +23,16 @@
         						<tbody>
         							<?php $no = 1; ?>
         							<?php foreach ($detail as $d) { ?>
-        								<?php $barang = $this->db->query("SELECT * FROM barang WHERE kode_barang = '$d->kode_barang'")->row(); ?>
+        								<?php // $barang = $this->db->query("SELECT * FROM barang WHERE kode_barang = '$d->kode_barang'")->row(); 
+										?>
         								<tr>
         									<td><?php echo $no; ?></td>
+        									<td><?php echo $d->grup; ?></td>
         									<td><?php echo $d->kode_barang; ?></td>
-        									<td><?php echo $barang->nama_barang; ?></td>
-        									<td><?php echo floor((int)$d->qty / (int)$barang->isi);; ?></td>
-        									<td><?php if ((int)$d->qty >= (int)$barang->isi) {
-													echo (int)$d->qty % (int)$barang->isi;
+        									<td><?php echo $d->nama_barang; ?></td>
+        									<td><?php echo floor((int)$d->qty / (int)$d->isi); ?></td>
+        									<td><?php if ((int)$d->qty >= (int)$d->isi) {
+													echo (int)$d->qty % (int)$d->isi;
 												} else {
 													echo $d->qty;
 												} ?>

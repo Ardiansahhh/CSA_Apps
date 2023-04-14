@@ -3,10 +3,6 @@
         	<div class="row">
         		<div class="col-xs-12">
         			<div class="box">
-        				<div class="box-header">
-        					<?php // if($this->session->flashdata('flash')) { echo $this->session->flashdata('flash'); } 
-							?>
-        				</div><!-- /.box-header -->
         				<div class="box-body">
         					<?php echo 'NO POLISI : ' . $no_polisi; ?><br>
         					<?php echo 'KUBIKASI : ' . (int)$kubikasi->kubikasi / 1000000; ?><br>
